@@ -8,7 +8,7 @@ inherit rust
 inherit cargo_common
 
 DEPENDS += "file-native python3-native"
-DEPENDS:append:class-native = " rust-llvm-native"
+DEPENDS_append_class-native = " rust-llvm-native"
 
 S = "${RUSTSRC}"
 

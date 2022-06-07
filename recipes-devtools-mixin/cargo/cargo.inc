@@ -32,7 +32,7 @@ do_cargo_setup_snapshot[dirs] += "${WORKDIR}/${CARGO_SNAPSHOT}"
 do_cargo_setup_snapshot[vardepsexclude] += "UNINATIVE_LOADER"
 
 
-do_compile:prepend () {
+do_compile_prepend () {
 	export RUSTC_BOOTSTRAP="1"
 }
 
@@ -52,5 +52,5 @@ export LIBSSH2_SYS_USE_PKG_CONFIG = "1"
 
 # When building cargo-native we don't have cargo-native to use and depend on,
 # so we must use the locally set up snapshot to bootstrap the build.
-BASEDEPENDS:remove:class-native = "cargo-native"
-CARGO:class-native = "${WORKDIR}/${CARGO_SNAPSHOT}/bin/cargo"
+BASEDEPENDS_remove_class-native = "cargo-native"
+CARGO_class-native = "${WORKDIR}/${CARGO_SNAPSHOT}/bin/cargo"
